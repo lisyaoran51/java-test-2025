@@ -16,6 +16,7 @@ public class Main {
 			System.out.println("請輸入第一個數字 如接續上個答案則輸入'.'，復原輸入undo，重做輸入redo");
 			var num1 = 0f;
 			var res = 0f;
+			var isContinuous = false;
 			var input1 = s.next();
 			switch (input1) {
 				case "undo":
@@ -38,6 +39,7 @@ public class Main {
 					if (node == null) {
 						num1 = 0;
 					} else {
+						isContinuous = true;
 						num1 = node.data;
 					}
 					System.out.println("請輸入運算符號(+,-,*,/)");
@@ -80,7 +82,7 @@ public class Main {
 			}
 			System.out.println("答案為" + res);
 
-			if (history.head == null) {
+			if (history.head == null || !isContinuous) {
 				node = new Node<>(res);
 				history.head = node;
 			} else {
