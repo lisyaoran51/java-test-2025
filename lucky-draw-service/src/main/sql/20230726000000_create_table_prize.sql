@@ -1,0 +1,17 @@
+
+
+CREATE DATABASE amway_order;
+
+CREATE TABLE prize (
+    id BIGINT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	quantity INT DEFAULT 0,
+	probability DECIMAL(18,8) NOT NULL,
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+INSERT INTO `prize` (`id`, `quantity`, `probability`)
+VALUES
+	(1, 10, 0.20000000),
+	(2, 15, 0.60000000),
+	(3, 3, 0.10000000);
